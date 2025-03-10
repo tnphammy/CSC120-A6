@@ -1,5 +1,8 @@
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -9,7 +12,7 @@ public class TrainTest {
     private static Engine engine;
     private static double fuelCapacity;
 
-    @BeforeClass
+    @Before
     public static void setUp() {
         fuelCapacity = 100.0;
         engine = new Engine(FuelType.ELECTRIC, fuelCapacity);
@@ -17,6 +20,7 @@ public class TrainTest {
 
 
     // Engine Tests
+
     @Test
     public void testEngineConstructor() {
 
@@ -45,6 +49,9 @@ public class TrainTest {
     // Car Tests
     @Test
     public void testCarAddPassenger() {
+
+        //Initialize the Car 
+        int passengerCapacity;
         fail();
     }
 
