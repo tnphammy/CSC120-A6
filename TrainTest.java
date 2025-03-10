@@ -1,17 +1,45 @@
 import static org.junit.Assert.*;
+
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class TrainTest {
 
+    // Initialize the Engine
+    private static Engine engine;
+    private static double fuelCapacity;
+
+    @BeforeClass
+    public static void setUp() {
+        fuelCapacity = 100.0;
+        engine = new Engine(FuelType.ELECTRIC, fuelCapacity);
+    }
+
+
     // Engine Tests
     @Test
     public void testEngineConstructor() {
-        fail();
+
+        //Test 1: Verify that the `Engine` constructor initializes correctly 
+        //with the given `FuelType` and fuel level.
+
+        assertEquals(FuelType.ELECTRIC,engine.getFuelType()); //FuelType is correct
+        assertEquals(fuelCapacity, engine.getFuelLevel().doubleValue(), 0.0); //Fuel levels are at FULL capacity at the start
+
     }
 
     @Test
     public void testEngineGo() {
-        fail();
+
+        //Test 2:  Test the `go()` method to ensure that 
+        //fuel consumption reduces the fuel level correctly.
+
+        engine.go(); //Move the engine once
+        assertEquals(fuelCapacity - fuelCapacity * 0.1, engine.getFuelLevel(), 0.0);
+
+        engine.go(); //Move the engine a second time
+        assertEquals(fuelCapacity - 2 * (fuelCapacity * 0.1), engine.getFuelLevel(), 0.0);
+
     }
 
     // Car Tests
