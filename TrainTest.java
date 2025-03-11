@@ -226,14 +226,36 @@ public class TrainTest {
     @Test
     public void testTrainPrintManifest() {
         // Test 4: Test the `printManifest()` method to ensure it iterates through the `Train`s `Car`s correctly.
-        
+
         // Board a unique passenger into each car.
         for (int i = 1; i <= nCars; i++) {
             Passenger p = new Passenger("Passenger Number" + i);
             p.boardCar(train.getCar(i));
-        }
+        
+        // Get output
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+        System.setOut(new PrintStream(outContent));
 
- 
+        // Call printManifest()
+        train.printManifest();
+
+        // Get original System.out
+        System.setOut(originalOut);
+        String output = outContent.toString();
+
+        // Check that each car's manifest is printed:
+        // Since each car prints "PASSENGER CAR #<number>"
+        // and if it's empty, it prints "This car is EMPTY."
+        for (int n = 1; n <= nCars; n++) {
+            assertTrue("Output should contain manifest header for car " + i,
+                output.contains("PASSENGER CAR #" + i));
+        }
+        assertTrue("Output should mention that the car is EMPTY", 
+            output.contains("This car is EMPTY."));
+            }
+
+    
     }
     
 }
