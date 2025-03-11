@@ -226,6 +226,7 @@ public class TrainTest {
     @Test
     public void testTrainPrintManifest() {
         // Test 4: Test the `printManifest()` method to ensure it iterates through the `Train`s `Car`s correctly.
+        
         // Board a unique passenger into each car.
         for (int i = 1; i <= nCars; i++) {
             Passenger p = new Passenger("Passenger Number" + i);
