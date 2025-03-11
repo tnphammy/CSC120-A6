@@ -14,21 +14,23 @@ public class Car {
         return this.passengerCapacity;
     }
 
-    public void addPassenger(Passenger p) {
+    public Boolean addPassenger(Passenger p) {
         if (this.passengers.size() < this.passengerCapacity) {
             if (this.passengers.contains(p)) {
                 throw new RuntimeException(p.getName() + " is already aboard this car!");
             } else {
                 this.passengers.add(p);
+                return true; 
             }
         } else {
             throw new RuntimeException("Car is full!");
         }
     }
 
-    public void removePassenger(Passenger p) {
+    public Boolean removePassenger(Passenger p) {
         if (this.passengers.contains(p)) {
             this.passengers.remove(p);
+            return true;
         } else {
             throw new RuntimeException(p.getName() + " is not onboard this car!");
         }
