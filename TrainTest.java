@@ -14,7 +14,7 @@ public class TrainTest {
 
     // Initialize the Car & Passenger
     private static Car car;
-    private ArrayList<Passenger> passengers;
+    private ArrayList<Passenger> passengers; // I don't know if I need this here...
     private Passenger tammy;
     private int passengerCapacity;
 
@@ -69,13 +69,18 @@ public class TrainTest {
 
         // Test 1: Ensure that adding a `Passenger` increases the passenger count.
 
-        int initialSeatsRemaining = car.seatsRemaining(); // Get the initial number of seats remaining
+        // Get the initial number of seats remaining
+        int initialSeatsRemaining = car.seatsRemaining(); 
 
-        car.addPassenger(tammy); // Add one passenger
+        // Add one passenger & Get the Boolean value
+        boolean added = car.addPassenger(tammy);
 
-        assertTrue(car.seatsRemaining() < initialSeatsRemaining); // Check to see if the passenger count has increased.
-        //by looking at the seats remaining
-        
+        // Check if passenger was added sucessfully
+        assertTrue(added); 
+
+        // Check to see if the passenger count has INCREASED.
+        // by seeing if the seats remaining DECREASED.
+        assertTrue(car.seatsRemaining() < initialSeatsRemaining);
 
 
     }
@@ -85,21 +90,29 @@ public class TrainTest {
 
         // Test 2: Ensure that removing a `Passenger` decreases the passenger count.
 
-        car.addPassenger(tammy); // Add one passenger
-
+        // Get one passenger on board
+        car.addPassenger(tammy);
+        
+        // Get the initial number of seats remaining
         int initialSeatsRemaining = car.seatsRemaining(); 
 
-        car.removePassenger(tammy); // Add one passenger
+        // Add one passenger & Get the Boolean value
+        boolean removed = car.removePassenger(tammy);
 
-        assertTrue(car.seatsRemaining() > initialSeatsRemaining); // Checks to see if the passenger count has increased.
-        //by looking at the seats remaining
+        // Check if passenger was added sucessfully
+        assertTrue(removed); 
+
+        // Check to see if the passenger count has DECREASED.
+        // by seeing if the seats remaining INCREASED.
+        assertTrue(car.seatsRemaining() > initialSeatsRemaining);
 
     }
 
     // Passenger Tests
     @Test
     public void testPassengerBoardCarWithSpace() {
-        fail();
+        // Test 1: Test that a `Passenger` can successfully board a `Car`.
+        ;
     }
 
     @Test
