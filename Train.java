@@ -66,9 +66,9 @@ public class Train {
     }
 
     public static void main(String[] args) {
-        Train myTrain = new Train(FuelType.STEAM, 200., 5, 10);
-        System.out.println(myTrain);
-        Passenger me = new Passenger("Jordan");
+        Train myTrain = new Train(FuelType.STEAM, 100, 2, 40);
+        //System.out.println(myTrain);
+        Passenger me = new Passenger("Tammy");
         me.boardCar(myTrain.getCar(1));
         myTrain.printManifest();
     }
