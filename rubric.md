@@ -17,10 +17,10 @@ Listed below are various aspects of the assignment.  When you turn in your work,
       **YES** `testCarAddPassenger()`
       **YES** `testCarRemovePassenger()`
       **YES** `testPassengerBoardCarWithSpace()`
-      **PART** `testTrainConstructor()`
+      **YES** `testTrainConstructor()`
       **YES** `testTrainPassengerCount()`
       **YES** `testTrainGetCar()`
-      **PART** `testTrainPrintManifest()`
+      **YES** `testTrainPrintManifest()`
 
 ## General Items:
 
