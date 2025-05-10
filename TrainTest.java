@@ -11,7 +11,7 @@ public class TrainTest {
     private Car testCar;
     private Car testFullCar;
     private Passenger tammy;
-    //private Train testTrain;
+    private Train testTrain;
 
     // Engine 
     @Before
@@ -87,11 +87,24 @@ public class TrainTest {
         tammy.boardCar(testFullCar);
     }
 
-    // // Train
-    // @Before 
-    // public void initializeTrain() {
-    //     testTrain = new Train(FuelType.STEAM, 100, 4, 40);
-    // }
+    // Train
+    @Before 
+    public void initializeTrain() {
+        testTrain = new Train(FuelType.STEAM, 100, 4, 40);
+    }
+
+    @Test
+    public void carCountTest() {
+        int newCarCount = testTrain.getCarCount();
+
+        assertEquals(4, newCarCount, 0.0);
+
+    }
+
+    @Test
+    public void passengerCountTest() {
+        
+    }
 
 
 

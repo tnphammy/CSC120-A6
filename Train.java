@@ -5,13 +5,19 @@ public class Train {
     // In Java, we use the keyword "final" to establish a composition relationship
     private final Engine engine; 
     private ArrayList<Car> cars;
+    private int carCount;
 
     public Train(FuelType fuelType, double fuelCapacity, int nCars, int passengerCapacity) {
         this.engine = new Engine(fuelType,fuelCapacity);
         this.cars = new ArrayList<Car>();
+        this.carCount = 0;
         for (int i = 0; i < nCars; i ++) {
             this.cars.add(new Car(passengerCapacity));
+            this.carCount += 1;
         }
+    }
+    public int getCarCount() {
+        return this.carCount;
     }
 
     public Engine getEngine() {
