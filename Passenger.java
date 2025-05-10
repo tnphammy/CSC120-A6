@@ -11,11 +11,10 @@ public class Passenger {
     }
 
     public void boardCar(Car c) {
-        try {
-            c.addPassenger(this);
-        } catch (RuntimeException e) {
-            System.out.println(e.getMessage());
-            System.out.println(this.name + " says: 'Guess I'll wait for the next one...'");
+        c.addPassenger(this);
+        
+        if (c.seatsRemaining() == 0) {
+            throw new RuntimeException(this.name + " says: 'Guess I'll wait for the next one..'.'");
         }
     }
 
